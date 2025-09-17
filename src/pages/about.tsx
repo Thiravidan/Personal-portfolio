@@ -20,7 +20,7 @@ export default function About() {
                 in software development, data science, and full-stack projects.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
-                I'm currently pursuing my Bachelor's degree in Computer Science and Engineering with a GPA of 8.72/10, 
+                I&apos;m currently pursuing my Bachelor&apos;s degree in Computer Science and Engineering with a GPA of 8.72/10, 
                 while actively working on innovative projects that combine my passion for technology and problem-solving.
               </p>
             </div>

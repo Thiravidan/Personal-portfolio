@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import Image from 'next/image';
 import SplitText from '../components/SplitText';
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
             <div className="text-center lg:text-left">
               <div className="mb-6">
                 <SplitText
-                  text="Hi, I'm "
+                  text="Hi, I&apos;m "
                   tag="h1"
                   className="text-4xl md:text-6xl lg:text-7xl font-bold text-white inline"
                   delay={80}
@@ -45,22 +46,22 @@ export default function Home() {
                   textAlign="center"
                   onLetterAnimationComplete={handleAnimationComplete}
                 />
-              </div>
+            </div>
               <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8">
-                Aspiring Data Analyst and Web Developer passionate about building impactful digital solutions
-              </p>
+              Aspiring Data Analyst and Web Developer passionate about building impactful digital solutions
+            </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
                 <Link 
                   href="/contact" 
                   className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:from-teal-700 hover:to-emerald-700 transition-all transform hover:scale-105"
-                >
-                  Get In Touch
+              >
+                Get In Touch
                 </Link>
                 <Link
                   href="/projects" 
-                  className="border border-white/30 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all"
-                >
-                  View My Work
+                className="border border-white/30 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all"
+              >
+                View My Work
                 </Link>
               </div>
             </div>
@@ -68,16 +69,19 @@ export default function Home() {
             {/* Profile Image - Right Side */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
-                <img 
+                <Image 
                   src="/main_photo.jpg" 
                   alt="Thiravidan PM" 
+                  width={384}
+                  height={384}
                   className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover object-top border-4 border-teal-400/30 shadow-2xl hover:border-teal-400/50 transition-all duration-300"
+                  priority
                 />
                 {/* Decorative elements */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 bg-teal-500/20 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-emerald-500/20 rounded-full blur-xl"></div>
               </div>
-            </div>
+        </div>
           </div>
           
           {/* Contact Info */}
@@ -102,9 +106,9 @@ export default function Home() {
               </svg>
               Sivaganga, Tamil Nadu, India
             </span>
-            </div>
+          </div>
 
-            {/* Social Links */}
+          {/* Social Links */}
             <div className="flex justify-center gap-6">
             <a href="https://github.com/Thiravidan" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

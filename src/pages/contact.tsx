@@ -10,7 +10,7 @@ export default function Contact() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h1>
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto mb-8"></div>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, creative projects, or just having a chat about technology!
+              I&apos;m always open to discussing new opportunities, creative projects, or just having a chat about technology!
             </p>
           </div>
           
@@ -18,7 +18,7 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover">
-                <h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">Let&apos;s Connect</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
