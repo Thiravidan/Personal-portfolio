@@ -1,6 +1,10 @@
 import Layout from '../components/Layout';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Skills() {
+  const { ref: skillsRef, isVisible: skillsVisible } = useScrollAnimation(0.1);
+  const { ref: certsRef, isVisible: certsVisible } = useScrollAnimation(0.1);
+  
   return (
     <Layout>
       {/* Skills Section */}
@@ -11,9 +15,9 @@ export default function Skills() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={skillsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 ${skillsVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Programming Languages */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover card-hover">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple ${skillsVisible ? 'card-entrance' : ''}`}>
               <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
                 <svg className="w-6 h-6 text-teal-400 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"/>
@@ -71,6 +75,7 @@ export default function Skills() {
               <div className="flex flex-wrap gap-3">
                 <span className="bg-cyan-600/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-semibold skill-badge-hover cursor-pointer">MySQL</span>
                 <span className="bg-emerald-600/30 text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold skill-badge-hover cursor-pointer">MongoDB</span>
+                <span className="bg-teal-600/30 text-teal-300 px-4 py-2 rounded-full text-sm font-semibold skill-badge-hover cursor-pointer">Supabase</span>
               </div>
             </div>
 
@@ -134,9 +139,9 @@ export default function Skills() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={certsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 ${certsVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Research Park Internship */}
-            <a href="https://www.linkedin.com/posts/thiravidan_automation-innovation-klnirp-activity-7289446108425043968-qHnQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_automation-innovation-klnirp-activity-7289446108425043968-qHnQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-emerald-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -151,7 +156,7 @@ export default function Skills() {
             </a>
 
             {/* Java Full Stack UpGrad */}
-            <a href="https://upgradcampus.certificate.givemycertificate.com/c/2fa15406-dcd3-4da0-a71b-1b5a2ab988fb" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://upgradcampus.certificate.givemycertificate.com/c/2fa15406-dcd3-4da0-a71b-1b5a2ab988fb" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-blue-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -166,7 +171,7 @@ export default function Skills() {
             </a>
 
             {/* Data Science Internshala */}
-            <a href="https://www.linkedin.com/posts/thiravidan_datascience-certification-nsdc-activity-7282985897061466112-a_7c/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_datascience-certification-nsdc-activity-7282985897061466112-a_7c/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-green-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-green-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -181,7 +186,7 @@ export default function Skills() {
             </a>
 
             {/* ChatGPT GUVI Course */}
-            <a href="https://www.linkedin.com/posts/thiravidan_chatgpt-ai-nlp-activity-7221758750376837120-3nEf?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_chatgpt-ai-nlp-activity-7221758750376837120-3nEf?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-red-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-red-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -196,7 +201,7 @@ export default function Skills() {
             </a>
 
             {/* ChatGPT Udemy Course */}
-            <a href="https://www.linkedin.com/posts/thiravidan_excited-to-share-my-latest-achievement-activity-7278606312358256640-vCAp?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_excited-to-share-my-latest-achievement-activity-7278606312358256640-vCAp?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-orange-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-orange-300" fill="currentColor" viewBox="0 0 20 20">
@@ -211,7 +216,7 @@ export default function Skills() {
             </a>
 
             {/* Technical Quiz Google Developers */}
-            <a href="https://www.linkedin.com/posts/thiravidan_technicalquiz-googledeveloperstudentsclub-activity-7223145144802324480-uJpA?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_technicalquiz-googledeveloperstudentsclub-activity-7223145144802324480-uJpA?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-yellow-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
@@ -226,7 +231,7 @@ export default function Skills() {
             </a>
 
             {/* SIH Participation */}
-            <a href="https://www.linkedin.com/posts/thiravidan_smartindiahackathon2023-pythondevelopment-activity-7225146699705393152-TB9g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_smartindiahackathon2023-pythondevelopment-activity-7225146699705393152-TB9g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-indigo-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
@@ -241,7 +246,7 @@ export default function Skills() {
             </a>
 
             {/* Data Science Codsoft */}
-            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-codsoft-activity-7236165325862354944-0eSK?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-codsoft-activity-7236165325862354944-0eSK?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-cyan-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
@@ -256,7 +261,7 @@ export default function Skills() {
             </a>
 
             {/* Data Science Prodigy */}
-            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-prodigyhrtechnology-activity-7236908342349029376-GJ2g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-prodigyhrtechnology-activity-7236908342349029376-GJ2g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-teal-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-teal-300" fill="currentColor" viewBox="0 0 20 20">
@@ -271,7 +276,7 @@ export default function Skills() {
             </a>
 
             {/* Data Science Cognifyz */}
-            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-cognifyztechnologies-activity-7237633107028254720-5Xii?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_datascience-internship-cognifyztechnologies-activity-7237633107028254720-5Xii?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-pink-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-pink-300" fill="currentColor" viewBox="0 0 20 20">
@@ -286,7 +291,7 @@ export default function Skills() {
             </a>
 
             {/* Python GUVI Course */}
-            <a href="https://www.linkedin.com/posts/thiravidan_python-codingjourney-activity-7278358497417699329-FXve?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_python-codingjourney-activity-7278358497417699329-FXve?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-blue-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -301,7 +306,7 @@ export default function Skills() {
             </a>
 
             {/* Data Science Roadmap */}
-            <a href="https://www.linkedin.com/posts/thiravidan_thrilled-to-complete-the-best-roadmap-for-activity-7278637998273974272-uc6g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_thrilled-to-complete-the-best-roadmap-for-activity-7278637998273974272-uc6g?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-emerald-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
@@ -316,7 +321,7 @@ export default function Skills() {
             </a>
 
             {/* Data Analysis Project */}
-            <a href="https://www.linkedin.com/posts/thiravidan_excited-to-share-my-accomplishment-of-completing-activity-7278638339925139456-bQx5?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_excited-to-share-my-accomplishment-of-completing-activity-7278638339925139456-bQx5?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-violet-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-violet-300" fill="currentColor" viewBox="0 0 20 20">
@@ -331,7 +336,7 @@ export default function Skills() {
             </a>
 
             {/* Java OOP and DSA */}
-            <a href="https://www.linkedin.com/posts/thiravidan_successfully-completed-a-java-course-on-activity-7278638738681839616-T2gN?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_successfully-completed-a-java-course-on-activity-7278638738681839616-T2gN?utm_source=share&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-red-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-red-300 icon-bounce" fill="currentColor" viewBox="0 0 20 20">
@@ -346,7 +351,7 @@ export default function Skills() {
             </a>
 
             {/* Internship and Job Preparation */}
-            <a href="https://www.linkedin.com/posts/thiravidan_internship-jobpreparation-careergrowth-activity-7298943736753836032-FWvg/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card block">
+            <a href="https://www.linkedin.com/posts/thiravidan_internship-jobpreparation-careergrowth-activity-7298943736753836032-FWvg/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQIc3IBZhgPNoWZRwt3Y5uZWUJqzvH9cBY" target="_blank" rel="noopener noreferrer" className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 certification-card touch-ripple block ${certsVisible ? 'card-entrance' : ''}`}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-slate-600/30 rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">

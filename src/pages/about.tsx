@@ -1,6 +1,9 @@
 import Layout from '../components/Layout';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function About() {
+  const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation(0.1);
+  
   return (
     <Layout>
       {/* About Section */}
@@ -11,7 +14,7 @@ export default function About() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto"></div>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div ref={aboutRef} className={`grid lg:grid-cols-2 gap-12 items-center ${aboutVisible ? 'opacity-100' : 'opacity-0'}`}>
             <div>
               <h2 className="text-2xl font-bold text-white mb-6">Summary</h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
@@ -25,7 +28,7 @@ export default function About() {
               </p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover touch-ripple ${aboutVisible ? 'card-entrance-right' : ''}`}>
               <h2 className="text-2xl font-bold text-white mb-6">Education</h2>
               <div className="space-y-6">
                 <div>

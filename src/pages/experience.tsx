@@ -1,6 +1,9 @@
 import Layout from '../components/Layout';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Experience() {
+  const { ref: experienceRef, isVisible: experienceVisible } = useScrollAnimation(0.1);
+  
   return (
     <Layout>
       {/* Experience Section */}
@@ -11,9 +14,9 @@ export default function Experience() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto"></div>
           </div>
           
-          <div className="space-y-12">
+          <div ref={experienceRef} className={`space-y-12 ${experienceVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Adishtu Tec Lab Internship */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover touch-ripple ${experienceVisible ? 'card-entrance-left' : ''}`}>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-2">Intern – Software Product Development</h2>
@@ -50,7 +53,7 @@ export default function Experience() {
             </div>
 
             {/* Free Will Technologies Internship */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 card-hover touch-ripple ${experienceVisible ? 'card-entrance-left' : ''}`}>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-2">Web Development Intern</h2>

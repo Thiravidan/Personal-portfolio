@@ -17,36 +17,72 @@ export default function Home() {
             {/* Content - Left Side */}
             <div className="text-center lg:text-left">
               <div className="mb-6">
-                <SplitText
-                  text="Hi, I&apos;m "
-                  tag="h1"
-                  className="text-4xl md:text-6xl lg:text-7xl font-bold text-white inline"
-                  delay={80}
-                  duration={0.6}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 50, rotationX: -90 }}
-                  to={{ opacity: 1, y: 0, rotationX: 0 }}
-                  threshold={0.1}
-                  rootMargin="-50px"
-                  textAlign="center"
-                />
-                <SplitText
-                  text="THIRAVIDAN"
-                  tag="h1"
-                  className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-name inline"
-                  delay={120}
-                  duration={0.8}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 60, rotationX: -90, scale: 0.8 }}
-                  to={{ opacity: 1, y: 0, rotationX: 0, scale: 1 }}
-                  threshold={0.1}
-                  rootMargin="-50px"
-                  textAlign="center"
-                  onLetterAnimationComplete={handleAnimationComplete}
-                />
-            </div>
+                <div className="block lg:hidden">
+                  {/* Mobile Version - Stacked */}
+                  <SplitText
+                    text="Hi, I&apos;m"
+                    tag="h1"
+                    className="text-3xl sm:text-4xl font-bold text-white block mb-2"
+                    delay={60}
+                    duration={0.5}
+                    ease="power3.out"
+                    splitType="chars"
+                    from={{ opacity: 0, y: 30, rotationX: -45 }}
+                    to={{ opacity: 1, y: 0, rotationX: 0 }}
+                    threshold={0.1}
+                    rootMargin="-30px"
+                    textAlign="center"
+                  />
+                  <SplitText
+                    text="THIRAVIDAN"
+                    tag="h1"
+                    className="text-4xl sm:text-5xl font-bold gradient-name block"
+                    delay={80}
+                    duration={0.7}
+                    ease="power3.out"
+                    splitType="chars"
+                    from={{ opacity: 0, y: 40, rotationX: -60, scale: 0.9 }}
+                    to={{ opacity: 1, y: 0, rotationX: 0, scale: 1 }}
+                    threshold={0.1}
+                    rootMargin="-30px"
+                    textAlign="center"
+                    onLetterAnimationComplete={handleAnimationComplete}
+                  />
+                </div>
+                
+                <div className="hidden lg:block">
+                  {/* Desktop Version - Inline */}
+                  <SplitText
+                    text="Hi, I&apos;m "
+                    tag="h1"
+                    className="text-6xl lg:text-7xl font-bold text-white inline"
+                    delay={80}
+                    duration={0.6}
+                    ease="power3.out"
+                    splitType="chars"
+                    from={{ opacity: 0, y: 50, rotationX: -90 }}
+                    to={{ opacity: 1, y: 0, rotationX: 0 }}
+                    threshold={0.1}
+                    rootMargin="-50px"
+                    textAlign="left"
+                  />
+                  <SplitText
+                    text="THIRAVIDAN"
+                    tag="h1"
+                    className="text-6xl lg:text-7xl font-bold gradient-name inline"
+                    delay={120}
+                    duration={0.8}
+                    ease="power3.out"
+                    splitType="chars"
+                    from={{ opacity: 0, y: 60, rotationX: -90, scale: 0.8 }}
+                    to={{ opacity: 1, y: 0, rotationX: 0, scale: 1 }}
+                    threshold={0.1}
+                    rootMargin="-50px"
+                    textAlign="left"
+                    onLetterAnimationComplete={handleAnimationComplete}
+                  />
+                </div>
+              </div>
               <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8">
               Aspiring Data Analyst and Web Developer passionate about building impactful digital solutions
             </p>

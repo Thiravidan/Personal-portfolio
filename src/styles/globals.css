@@ -272,6 +272,126 @@ body {
   }
 }
 
+/* Scroll-Triggered Entrance Animations for Mobile */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile-First Card Animations */
+.card-entrance {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.card-entrance-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.card-entrance-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.card-entrance-scale {
+  animation: fadeInScale 0.5s ease-out forwards;
+}
+
+/* Staggered animations for multiple cards */
+.card-entrance:nth-child(1) { animation-delay: 0.1s; }
+.card-entrance:nth-child(2) { animation-delay: 0.2s; }
+.card-entrance:nth-child(3) { animation-delay: 0.3s; }
+.card-entrance:nth-child(4) { animation-delay: 0.4s; }
+.card-entrance:nth-child(5) { animation-delay: 0.5s; }
+.card-entrance:nth-child(6) { animation-delay: 0.6s; }
+
+/* Touch Ripple Effect */
+.touch-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.touch-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(20, 184, 166, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.touch-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Better mobile card interactions */
+@media (max-width: 768px) {
+  .card-hover {
+    transition: all 0.2s ease;
+  }
+  
+  .card-hover:active {
+    transform: scale(0.97);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Gentle pulse animation for mobile cards */
+  .card-pulse {
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(20, 184, 166, 0.2);
+  }
+}
+
 /* Navigation Menu Styles */
 :root {
   --background: 0 0% 100%;

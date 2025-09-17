@@ -1,6 +1,9 @@
 import Layout from '../components/Layout';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Projects() {
+  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.1);
+  
   return (
     <Layout>
       {/* Projects Section */}
@@ -11,9 +14,9 @@ export default function Projects() {
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-pink-400 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={projectsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 ${projectsVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Movie Rating Prediction */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   Movie Rating Prediction
@@ -46,7 +49,7 @@ export default function Projects() {
             </div>
 
             {/* ELISA Assistant */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   ELISA Assistant
@@ -90,7 +93,7 @@ export default function Projects() {
             </div>
 
             {/* Doctor Listing Web App */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   Doctor Listing Web App
@@ -123,7 +126,7 @@ export default function Projects() {
             </div>
 
             {/* Titanic Dataset Analysis */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   Titanic Dataset Analysis
@@ -156,7 +159,7 @@ export default function Projects() {
             </div>
 
             {/* Iris Flower Classification */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   Iris Flower Classification
@@ -189,7 +192,7 @@ export default function Projects() {
             </div>
 
             {/* Gender Classification */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover group">
+            <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 card-hover touch-ripple group ${projectsVisible ? 'card-entrance' : ''}`}>
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                   Gender Classification
